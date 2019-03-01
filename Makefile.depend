@@ -1,0 +1,6 @@
+main.o:									\
+	$(OBJECT)/include/SAMRAI/SAMRAI_config.h CartSideDoubleRefineStrategy.h Poisson.h main.C
+CartSideDoubleRefineStrategy.o:         \
+	$(OBJECT)/include/SAMRAI/SAMRAI_config.h CartSideDoubleRefineStrategy.h CartSideDoubleRefineStrategy.C
+Poisson.o:								\
+	$(OBJECT)/include/SAMRAI/SAMRAI_config.h Poisson.h Poisson.C

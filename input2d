@@ -1,0 +1,63 @@
+L = 1.0
+N = 4
+PI = 3.14159265359
+Main {
+	max_steps = 100000
+//	end_time = PI
+	end_time = 8.0	
+	regrid_interval = 1000
+	log_file_name = "logfile.log"
+	visit_dump_interval = N / 20
+	visit_dump_dirname = "visit"
+}
+
+CartesianGeometry {
+	domain_boxes = [ (0,0) , (N - 1,N - 1) ]
+	x_lo = 0.0 , 0.0
+	x_up = L , L
+	periodic_dimension = 1,1
+}
+
+PatchHierarchy {
+	max_levels = 2
+	ratio_to_coarser {
+		level_1 = 2 , 2
+		level_2 = 2 , 2
+		level_3 = 2 , 2
+		level_4 = 2 , 2
+	}
+	largest_patch_size {
+		level_0 = 512, 512
+	}
+	smallest_patch_size {
+		level_0 = 4 , 4
+	}
+	efficiency_tolerance = 0.7
+	combine_efficiency = 0.85
+}
+
+StandardTagAndInitialize {
+//  at_0 {
+//    time = 0
+//    tag_0 {
+      tagging_method = "REFINE_BOXES"
+      level_0 {
+//        block_1 {
+          boxes = [( N/2 - 1,N/2 - 1 ),( N - 1,N - 1 )]
+//        }
+      }
+//    }
+//  }
+}
+
+TimerManager {
+	timer_list = "apps::main::*"
+}
+
+LoadBalancer {
+	use_spatial_bin_pack = TRUE
+}
+
+GriddingAlgorithm {
+
+}
