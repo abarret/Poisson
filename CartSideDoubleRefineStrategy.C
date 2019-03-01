@@ -36,10 +36,11 @@
 #include <set>
 #include <vector>
 
-#include "SAMRAI/hier/BoundaryBox.h"
-#include "SAMRAI/hier/Box.h"
+#include "CartSideDoubleRefineStrategy.h"
 #include "SAMRAI/geom/CartesianPatchGeometry.h"
 #include "SAMRAI/geom/CartesianSideDoubleConservativeLinearRefine.h"
+#include "SAMRAI/hier/BoundaryBox.h"
+#include "SAMRAI/hier/Box.h"
 #include "SAMRAI/hier/CoarseFineBoundary.h"
 #include "SAMRAI/hier/ComponentSelector.h"
 #include "SAMRAI/hier/Index.h"
@@ -47,17 +48,16 @@
 #include "SAMRAI/hier/Patch.h"
 #include "SAMRAI/hier/PatchHierarchy.h"
 #include "SAMRAI/hier/PatchLevel.h"
-#include "SAMRAI/xfer/RefineAlgorithm.h"
 #include "SAMRAI/hier/RefineOperator.h"
-#include "SAMRAI/xfer/RefineSchedule.h"
-#include "SAMRAI/pdat/SideData.h"
-#include "SAMRAI/pdat/SideVariable.h"
 #include "SAMRAI/hier/Variable.h"
 #include "SAMRAI/hier/VariableContext.h"
 #include "SAMRAI/hier/VariableDatabase.h"
+#include "SAMRAI/pdat/SideData.h"
+#include "SAMRAI/pdat/SideVariable.h"
 #include "SAMRAI/tbox/Array.h"
 #include "SAMRAI/tbox/Utilities.h"
-#include "CartSideDoubleRefineStrategy.h"
+#include "SAMRAI/xfer/RefineAlgorithm.h"
+#include "SAMRAI/xfer/RefineSchedule.h"
 
 using namespace SAMRAI;
 using namespace tbox;
@@ -90,8 +90,8 @@ CartSideDoubleRefineStrategy::~CartSideDoubleRefineStrategy()
 
 void
 CartSideDoubleRefineStrategy::setPhysicalBoundaryConditions(Patch& /*patch*/,
-                                                                      const double /*fill_time*/,
-                                                                      const IntVector& /*ghost_width_to_fill*/)
+                                                            const double /*fill_time*/,
+                                                            const IntVector& /*ghost_width_to_fill*/)
 {
     // intentionally blank
     return;
@@ -105,9 +105,9 @@ CartSideDoubleRefineStrategy::getRefineOpStencilWidth(const Dimension& dim) cons
 
 void
 CartSideDoubleRefineStrategy::preprocessRefine(Patch& /*fine*/,
-                                                         const Patch& /*coarse*/,
-                                                         const Box& /*fine_box*/,
-                                                         const IntVector& /*ratio*/)
+                                               const Patch& /*coarse*/,
+                                               const Box& /*fine_box*/,
+                                               const IntVector& /*ratio*/)
 {
     // intentionally blank
     return;
@@ -115,9 +115,9 @@ CartSideDoubleRefineStrategy::preprocessRefine(Patch& /*fine*/,
 
 void
 CartSideDoubleRefineStrategy::postprocessRefine(Patch& fine,
-                                                          const Patch& coarse,
-                                                          const Box& fine_box,
-                                                          const IntVector& ratio)
+                                                const Patch& coarse,
+                                                const Box& fine_box,
+                                                const IntVector& ratio)
 {
     // intentionally blank
     return;

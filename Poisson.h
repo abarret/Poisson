@@ -3,30 +3,30 @@
 
 #include "SAMRAI/SAMRAI_config.h"
 
-#include "SAMRAI/tbox/MessageStream.h"
-#include "SAMRAI/hier/Box.h"
 #include "SAMRAI/appu/BoundaryUtilityStrategy.h"
 #include "SAMRAI/geom/CartesianGridGeometry.h"
-#include "SAMRAI/pdat/SideVariable.h"
-#include "SAMRAI/tbox/Database.h"
+#include "SAMRAI/hier/Box.h"
 #include "SAMRAI/hier/IntVector.h"
 #include "SAMRAI/hier/PatchHierarchy.h"
 #include "SAMRAI/hier/PatchLevel.h"
-#include "SAMRAI/tbox/Serializable.h"
-#include "SAMRAI/mesh/StandardTagAndInitStrategy.h"
 #include "SAMRAI/hier/Variable.h"
+#include "SAMRAI/mesh/StandardTagAndInitStrategy.h"
+#include "SAMRAI/pdat/SideVariable.h"
+#include "SAMRAI/tbox/Database.h"
+#include "SAMRAI/tbox/MessageStream.h"
+#include "SAMRAI/tbox/Serializable.h"
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 using namespace SAMRAI;
 namespace AMR
 {
-    /**
-      * Dummy implementation of StandardTagAndInitStrategy. Provides empty implementations of intializeLevelData and resetHierarchyConfiguration.
-      */
-class Poisson :
-    public mesh::StandardTagAndInitStrategy
+/**
+  * Dummy implementation of StandardTagAndInitStrategy. Provides empty implementations of intializeLevelData and
+ * resetHierarchyConfiguration.
+  */
+class Poisson : public mesh::StandardTagAndInitStrategy
 {
 public:
     Poisson(const std::string& object_name,
@@ -46,7 +46,7 @@ public:
     void resetHierarchyConfiguration(const std::shared_ptr<hier::PatchHierarchy>& hierarchy,
                                      const int coarsest_level,
                                      const int finest_level) override;
-    
+
 private:
 };
 }

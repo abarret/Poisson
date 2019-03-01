@@ -44,21 +44,20 @@
 #include "SAMRAI/hier/PatchHierarchy.h"
 #include "SAMRAI/hier/RefineOperator.h"
 #include "SAMRAI/pdat/SideVariable.h"
-#include "SAMRAI/xfer/RefinePatchStrategy.h"
 #include "SAMRAI/tbox/Dimension.h"
+#include "SAMRAI/xfer/RefinePatchStrategy.h"
 
 namespace SAMRAI
 {
 namespace hier
 {
-
 class CoarseFineBoundary;
 
 class Patch;
 } // namespace hier
 namespace tbox
 {
-    class Dimension;
+class Dimension;
 }
 } // namespace SAMRAI
 
